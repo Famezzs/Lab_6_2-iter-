@@ -12,13 +12,13 @@ namespace UnitTest62iter
 		
 		TEST_METHOD(TestMethod1)
 		{
-			int t = 0;
 			const int n = 1;
 			int c[n];
+			c[0] = 1;
 
-			CreateArray(c, n, -17, -17, t);
+			double t = ArithmeticMean(c, n);
 
-			Assert::AreEqual(t, 0);
+			Assert::AreEqual(t, 1.);
 		}
 	};
 }
