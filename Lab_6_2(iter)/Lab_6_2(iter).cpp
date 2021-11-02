@@ -91,5 +91,5 @@ double ArithmeticMean(int *z, const int size)
 		S += z[i];
 	}
 
-	return S / size * 1.;
+	return S / size;
 }
