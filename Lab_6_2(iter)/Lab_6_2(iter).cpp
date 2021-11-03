@@ -9,7 +9,6 @@
 #include <time.h>
 
 using std::cout;
-using std::cerr;
 using std::cin;
 using std::endl;
 using std::setw;
@@ -37,7 +36,7 @@ int main()
 	CreateArray(a, n, A, B);
 	PrintArray(a, n);
 
-	cout << endl << "The arithmetic mean is:" << setw(5) << ArithmeticMean(a, n);
+	cout << endl << "The arithmetic mean is: " << ArithmeticMean(a, n);
 
 	delete[] a;
 	return 0;
@@ -45,15 +44,9 @@ int main()
 
 void CreateArray(int *z, const int size, const int LeftLimit, const int RightLimit)
 {
-	int i = 0;
-	while (i < size)
+	for (int i = 0; i < size; i++)
 	{
-		int t = LeftLimit + rand() % (RightLimit - LeftLimit + 1);
-		if (t % 2 == 0)
-		{
-			z[i] = t;
-			i++;
-		}
+		z[i] = LeftLimit + rand() % (RightLimit - LeftLimit + 1);
 	}
 }
 
@@ -74,11 +67,13 @@ void PrintArray(int *z, const int size)
 double ArithmeticMean(int *z, const int size)
 {
 	double S = 0;
+	int n = 0;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i += 2)
 	{
 		S += z[i];
+		n++;
 	}
 
-	return S / size;
+	return S / n;
 }
