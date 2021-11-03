@@ -27,9 +27,22 @@ int main()
 
 	cout << "How many elements should a new array consist of?\n"; 
 	cout << "n = "; cin >> n;
+
+	if (n <= 0)
+	{
+		std::cerr << "Number of elements in an array should be > 0";
+		return -1;
+	}
+
 	cout << endl << "What interval should RNG's results satisfy? (i.e. define [A;B], where A and B are both integers, A < B)\n";
 	cout << "A = "; cin >> A;
 	cout << "B = "; cin >> B;
+
+	if (A >= B)
+	{
+		std::cerr << "A must be < B";
+		return -1;
+	}
 
 	int *a = new int[n];
 
